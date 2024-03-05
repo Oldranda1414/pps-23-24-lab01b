@@ -2,6 +2,7 @@ package e1;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -28,6 +29,15 @@ public class KnightTest {
         assertAll(
             () -> assertTrue(knight.move(newPosition)),
             () -> assertEquals(newPosition, knight.getPosition())
+        );
+    }
+
+    @Test
+    void wrongMovementTest(){
+        final Pair<Integer, Integer> wrongPosition = new Pair<>(1,1);
+        assertAll(
+            () -> assertFalse(knight.move(wrongPosition)),
+            () -> assertEquals(initialPosition, knight.getPosition())
         );
     }
 }
