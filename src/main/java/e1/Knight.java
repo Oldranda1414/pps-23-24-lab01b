@@ -15,8 +15,18 @@ public class Knight implements Piece {
 
     @Override
     public boolean move(Pair<Integer, Integer> newPosition) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'move'");
+		// Below a compact way to express allowed moves for the knight
+        final int startingX = this.position.getX();
+        final int startingY = this.position.getY();
+        final int targetX = newPosition.getX();
+        final int targetY = newPosition.getY();
+		int x = targetX - startingX;
+		int y = targetY - startingY;
+		if (x!=0 && y!=0 && Math.abs(x)+Math.abs(y)==3) {
+			this.position = new Pair<>(targetX, targetY);
+			return true;
+		}
+		return false;
     }
     
 }
