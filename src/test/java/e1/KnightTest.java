@@ -25,7 +25,9 @@ public class KnightTest {
     @Test
     void correctMovementTest(){
         final Pair<Integer, Integer> newPosition = new Pair<>(2,1);
-        knight.move(newPosition);
-        assertEquals(newPosition, knight.getPosition());
+        assertAll(
+            () -> assertTrue(knight.move(newPosition)),
+            () -> assertEquals(newPosition, knight.getPosition())
+        );
     }
 }
