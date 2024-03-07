@@ -55,4 +55,16 @@ public class BoardTest {
         final Pair<Integer, Integer> outOfBoundsMove = new Pair<>(9,10);
         assertThrows(IndexOutOfBoundsException.class, () -> board.movePiece(outOfBoundsMove));
     }
+
+    @Test
+    void outOfBoundsInit(){
+        final Pair<Integer, Integer> overBoundsPosition = new Pair<>(10,10);
+        final Pair<Integer, Integer> underBoundsPosition = new Pair<>(-1, -1);
+        assertAll(
+            () -> assertThrows(IndexOutOfBoundsException.class, () -> new BoardImpl(piece, overBoundsPosition, dimensions)),
+            () -> assertThrows(IndexOutOfBoundsException.class, () -> new BoardImpl(piece, underBoundsPosition, dimensions)),
+            () -> assertThrows(IndexOutOfBoundsException.class, () -> new BoardImpl(new Knight(overBoundsPosition), target, dimensions)),
+            () -> assertThrows(IndexOutOfBoundsException.class, () -> new BoardImpl(new Knight(underBoundsPosition), target, dimensions))
+        );
+    }
 }

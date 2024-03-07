@@ -7,9 +7,23 @@ public class BoardImpl implements Board{
     private Pair<Integer, Integer> dimensions; 
 
     public BoardImpl(Piece piece, Pair<Integer, Integer> target, Pair<Integer, Integer> dimensions){
+        this.dimensions = dimensions;
+
+        final int pieceX = piece.getPosition().getX();
+        final int pieceY = piece.getPosition().getY();
+        final int targetX = target.getX();
+        final int targetY = target.getY();
+
+        if(pieceX < 0 || pieceX >= this.dimensions.getX() || pieceY < 0 || pieceY >= this.dimensions.getY()){
+            throw new IndexOutOfBoundsException("piece is out of bounds");
+        }
+
+        if(targetX < 0 || targetX >= this.dimensions.getX() || targetY < 0 || targetY >= this.dimensions.getY()){
+            throw new IndexOutOfBoundsException("target is out of bounds");
+        }
+
         this.piece = piece;
         this.target = target;
-        this.dimensions = dimensions;
     }
 
     @Override
@@ -26,10 +40,10 @@ public class BoardImpl implements Board{
     public boolean movePiece(Pair<Integer, Integer> newPosition) {
         final int newX = newPosition.getX();
         final int newY = newPosition.getY();
-        if(newX >= 0 && newX < this.dimensions.getX() && newY >= 0 && newY < this.dimensions.getY()){
-            return this.piece.move(newPosition);
+        if(newX < 0 || newX >= this.dimensions.getX() || newY < 0 || newY >= this.dimensions.getY()){
+            throw new IndexOutOfBoundsException("newPosition is out of bounds");
         }
-        throw new IndexOutOfBoundsException();
+        return this.piece.move(newPosition);
     }
 
     @Override
