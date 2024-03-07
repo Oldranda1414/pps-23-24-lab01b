@@ -1,6 +1,10 @@
-package e1;
+package e1.logics;
 
 import java.util.*;
+
+import e1.chess.Board;
+import e1.chess.BoardImpl;
+import e1.utils.Pair;
 
 public class LogicsImpl implements Logics {
 	

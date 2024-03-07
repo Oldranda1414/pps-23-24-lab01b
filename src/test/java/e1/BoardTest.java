@@ -9,6 +9,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import e1.chess.Board;
+import e1.chess.BoardImpl;
+import e1.utils.Pair;
+
 public class BoardTest {
 
     private Board board;

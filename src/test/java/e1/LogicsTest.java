@@ -8,6 +8,10 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import e1.logics.Logics;
+import e1.logics.LogicsImpl;
+import e1.utils.Pair;
+
 public class LogicsTest {
 
     private Logics logics;

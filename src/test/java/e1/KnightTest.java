@@ -8,6 +8,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import e1.chess.Knight;
+import e1.chess.Piece;
+import e1.utils.Pair;
+
 public class KnightTest {
 
     private Piece knight;
