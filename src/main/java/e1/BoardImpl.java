@@ -6,13 +6,13 @@ public class BoardImpl implements Board{
     private Pair<Integer, Integer> target; 
     private Pair<Integer, Integer> dimensions; 
 
-    public BoardImpl(Piece piece, Pair<Integer, Integer> target, Pair<Integer, Integer> dimensions){
+    public BoardImpl(Pair<Integer, Integer> piecePosition, Pair<Integer, Integer> targetPosition, Pair<Integer, Integer> dimensions){
         this.dimensions = dimensions;
 
-        final int pieceX = piece.getPosition().getX();
-        final int pieceY = piece.getPosition().getY();
-        final int targetX = target.getX();
-        final int targetY = target.getY();
+        final int pieceX = piecePosition.getX();
+        final int pieceY = piecePosition.getY();
+        final int targetX = targetPosition.getX();
+        final int targetY = targetPosition.getY();
 
         if(pieceX < 0 || pieceX >= this.dimensions.getX() || pieceY < 0 || pieceY >= this.dimensions.getY()){
             throw new IndexOutOfBoundsException("piece is out of bounds");
@@ -22,8 +22,8 @@ public class BoardImpl implements Board{
             throw new IndexOutOfBoundsException("target is out of bounds");
         }
 
-        this.piece = piece;
-        this.target = target;
+        this.piece = new Knight(piecePosition);
+        this.target = targetPosition;
     }
 
     @Override

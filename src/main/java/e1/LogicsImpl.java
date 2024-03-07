@@ -4,8 +4,8 @@ import java.util.*;
 
 public class LogicsImpl implements Logics {
 	
-	private final Pair<Integer,Integer> pawn;
-	private final Piece knight;
+	private final Pair<Integer,Integer> pawnPosition;
+	private final Pair<Integer,Integer> knightPosition;
 	private final Board board;
 	private final Random random; 
 	private final int size;
@@ -13,23 +13,23 @@ public class LogicsImpl implements Logics {
     public LogicsImpl(int size){
 		this.random = new Random();
     	this.size = size;
-        this.pawn = this.randomEmptyPosition();
-        this.knight = new Knight(this.randomEmptyPosition());
-		this.board = new BoardImpl(this.knight, this.pawn, new Pair<>(size, size));
+        this.pawnPosition = this.randomEmptyPosition();
+        this.knightPosition = this.randomEmptyPosition();
+		this.board = new BoardImpl(this.knightPosition, this.pawnPosition, new Pair<>(size, size));
     }
 
-	public LogicsImpl(int size, Pair<Integer, Integer> pawn, Pair<Integer, Integer> knight){
+	public LogicsImpl(int size, Pair<Integer, Integer> pawnPosition, Pair<Integer, Integer> knightPosition){
 		this.random = new Random();
     	this.size = size;
-        this.pawn = pawn;
-        this.knight = new Knight(knight);
-		this.board = new BoardImpl(this.knight, this.pawn, new Pair<>(size, size));
+        this.pawnPosition = pawnPosition;
+        this.knightPosition = knightPosition;
+		this.board = new BoardImpl(this.knightPosition, this.pawnPosition, new Pair<>(size, size));
 	}
     
 	private final Pair<Integer,Integer> randomEmptyPosition(){
     	Pair<Integer,Integer> pos = new Pair<>(this.random.nextInt(size),this.random.nextInt(size));
     	// the recursive call below prevents clash with an existing pawn
-    	return this.pawn!=null && this.pawn.equals(pos) ? randomEmptyPosition() : pos;
+    	return this.pawnPosition!=null && this.pawnPosition.equals(pos) ? randomEmptyPosition() : pos;
     }
     
 	@Override

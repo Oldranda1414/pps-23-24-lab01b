@@ -13,13 +13,12 @@ public class BoardTest {
 
     private Board board;
     private Pair<Integer, Integer> piecePosition = new Pair<>(8,8);
-    private Piece piece = new Knight(piecePosition);
     private Pair<Integer, Integer> target = new Pair<>(3,3);
     private Pair<Integer, Integer> dimensions = new Pair<>(9,9);
     
     @BeforeEach
     void beforeEach(){
-        board = new BoardImpl(piece, target, dimensions);
+        board = new BoardImpl(piecePosition, target, dimensions);
     }
 
     @Test
@@ -61,10 +60,10 @@ public class BoardTest {
         final Pair<Integer, Integer> overBoundsPosition = new Pair<>(10,10);
         final Pair<Integer, Integer> underBoundsPosition = new Pair<>(-1, -1);
         assertAll(
-            () -> assertThrows(IndexOutOfBoundsException.class, () -> new BoardImpl(piece, overBoundsPosition, dimensions)),
-            () -> assertThrows(IndexOutOfBoundsException.class, () -> new BoardImpl(piece, underBoundsPosition, dimensions)),
-            () -> assertThrows(IndexOutOfBoundsException.class, () -> new BoardImpl(new Knight(overBoundsPosition), target, dimensions)),
-            () -> assertThrows(IndexOutOfBoundsException.class, () -> new BoardImpl(new Knight(underBoundsPosition), target, dimensions))
+            () -> assertThrows(IndexOutOfBoundsException.class, () -> new BoardImpl(piecePosition, overBoundsPosition, dimensions)),
+            () -> assertThrows(IndexOutOfBoundsException.class, () -> new BoardImpl(piecePosition, underBoundsPosition, dimensions)),
+            () -> assertThrows(IndexOutOfBoundsException.class, () -> new BoardImpl(overBoundsPosition, target, dimensions)),
+            () -> assertThrows(IndexOutOfBoundsException.class, () -> new BoardImpl(underBoundsPosition, target, dimensions))
         );
     }
 }
