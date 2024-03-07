@@ -22,20 +22,17 @@ public class BoardImpl implements Board{
 
     @Override
     public boolean movePiece(Pair<Integer, Integer> newPosition) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'movePiece'");
+        return this.piece.move(newPosition);
     }
 
     @Override
     public Pair<Integer, Integer> getPiecePosition() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPiecePosition'");
+        return this.piece.getPosition();
     }
 
     @Override
     public Pair<Integer, Integer> getTargetPosition() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getTargetPosition'");
+        return this.target;
     }
     
 }
