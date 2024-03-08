@@ -27,4 +27,12 @@ public class CellTest {
             () -> assertEquals(CellType.EMPTY, cell.getType())
         );
     }
+
+    @Test
+    void typeTest(){
+        cell.setType(CellType.MINE);
+        assertEquals(CellType.MINE, cell.getType());
+    }
+
+
 }

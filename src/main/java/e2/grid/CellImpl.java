@@ -13,8 +13,7 @@ public class CellImpl implements Cell{
 
     @Override
     public void setType(CellType type) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setType'");
+        this.type = type;
     }
 
     @Override
