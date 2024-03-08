@@ -40,9 +40,9 @@ public class GridTest {
     void numberOfAdiacentMinesTest(){
         for(int x = 0; x < SIZE; x++){
             for(int y = 0; y < SIZE; y++){
-                var cell = grid.getCell(new Pair<>(x, y));
-                if(cell.getType().equals(CellType.NUMBER)){
-                    assertEquals(countAdiacentMines(x, y), cell.getAdiacentMines().get());
+                var adiacentNumber = grid.getAdiacentMines(new Pair<Integer,Integer>(x, y));
+                if(adiacentNumber.isPresent()){
+                    assertEquals(countAdiacentMines(x, y), adiacentNumber.get());
                 }
             }
         }

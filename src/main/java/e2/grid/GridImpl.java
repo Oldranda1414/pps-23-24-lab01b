@@ -1,6 +1,6 @@
 package e2.grid;
 
-import java.util.ArrayList;
+import java.util.Optional;
 
 import e2.utils.RandomPairGenerator;
 import e2.utils.Pair;
@@ -24,9 +24,8 @@ public class GridImpl implements Grid{
     }
     
     @Override
-    public int getAdiacentMines(Pair<Integer, Integer> position) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAdiacentMines'");
+    public Optional<Integer> getAdiacentMines(Pair<Integer, Integer> position) {
+        return this.cells[position.getX()][position.getY()].getAdiacentMines();
     }
 
     private void setUpGrid(){
