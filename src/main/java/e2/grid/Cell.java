@@ -1,7 +1,5 @@
 package e2.grid;
 
-import e2.utils.Pair;
-
 public interface Cell {
 
     /**
