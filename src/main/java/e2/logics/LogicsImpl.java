@@ -1,8 +1,5 @@
 package e2.logics;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import e2.utils.Pair;
 import e2.grid.Cell;
 import e2.grid.CellType;
