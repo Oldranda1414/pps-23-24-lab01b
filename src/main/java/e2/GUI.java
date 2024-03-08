@@ -4,6 +4,8 @@ import javax.swing.*;
 import javax.swing.event.MouseInputAdapter;
 import javax.swing.event.MouseInputListener;
 
+import e2.utils.Pair;
+
 import java.util.*;
 import java.util.Map.Entry;
 import java.awt.*;

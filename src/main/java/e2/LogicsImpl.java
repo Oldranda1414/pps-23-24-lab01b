@@ -3,6 +3,8 @@ package e2;
 import java.util.ArrayList;
 import java.util.Random;
 
+import e2.utils.Pair;
+
 public class LogicsImpl implements Logics {
 
     private int SIZE;
