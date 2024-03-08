@@ -3,6 +3,7 @@ package e2;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -34,5 +35,9 @@ public class CellTest {
         assertEquals(CellType.MINE, cell.getType());
     }
 
-
+    @Test
+    void flagTest(){
+        cell.setFlag(true);
+        assertTrue(cell.isFlagged());
+    }
 }

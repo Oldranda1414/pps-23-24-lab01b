@@ -23,8 +23,7 @@ public class CellImpl implements Cell{
 
     @Override
     public void setFlag(boolean bool) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setFlag'");
+        this.flag = bool;
     }
 
 }
