@@ -1,7 +1,5 @@
 package e1.logics;
 
-import java.util.*;
-
 import e1.chess.Board;
 import e1.chess.BoardImpl;
 import e1.utils.Pair;
@@ -13,11 +11,9 @@ public class LogicsImpl implements Logics {
 	private final Pair<Integer,Integer> knightPosition;
 	private final Board board;
 	private final RandomPairGenerator random; 
-	private final int size;
 	 
     public LogicsImpl(int size){
 		this.random = new RandomPairGenerator(size);
-    	this.size = size;
         this.pawnPosition = this.randomEmptyPosition();
         this.knightPosition = this.randomEmptyPosition();
 		this.board = new BoardImpl(this.knightPosition, this.pawnPosition, new Pair<>(size, size));
@@ -25,7 +21,6 @@ public class LogicsImpl implements Logics {
 
 	public LogicsImpl(int size, Pair<Integer, Integer> pawnPosition, Pair<Integer, Integer> knightPosition){
 		this.random = new RandomPairGenerator(size);
-    	this.size = size;
         this.pawnPosition = pawnPosition;
         this.knightPosition = knightPosition;
 		this.board = new BoardImpl(this.knightPosition, this.pawnPosition, new Pair<>(size, size));
