@@ -32,7 +32,10 @@ public class GridImpl implements Grid{
 
     private void setUpGrid(){
         initCellsArray();
+        
         setRandomMines();
+
+        setAdiacentNumbers();
     }
 
     private void initCellsArray(){
@@ -56,18 +59,26 @@ public class GridImpl implements Grid{
         }
     }
 
-    private int countAdiacentMines(Pair<Integer, Integer> cellPosition){
+    private void setAdiacentNumbers(){
+        for(int x = 0; x < this.size; x++){
+            for(int y = 0; y < this.size; y++){
+                if(!this.cells[x][y].getType().equals(CellType.MINE)){
+                    this.cells[x][y].setAdiacentMines(countAdiacentMines(x, y));
+                    this.cells[x][y].setType(CellType.NUMBER);
+                }
+            }
+        }
+    }
+
+    private int countAdiacentMines(final int X, final int Y){
         int counter = 0;
 
-        final int CELL_X = cellPosition.getX(); 
-        final int CELL_Y = cellPosition.getY(); 
-
-        final int[] ADIACENT_X = {CELL_X, CELL_X - 1, CELL_X + 1};
-        final int[] ADIACENT_Y = {CELL_Y, CELL_Y - 1, CELL_Y + 1};
+        final int[] ADIACENT_X = {X, X - 1, X + 1};
+        final int[] ADIACENT_Y = {Y, Y - 1, Y + 1};
 
         for(var x : ADIACENT_X){
             for(var y : ADIACENT_Y){
-                if(x != CELL_X && y != CELL_Y && isValidPosition(x, y)){
+                if(x != X && y != Y && isValidPosition(x, y)){
                     Cell currentCell = this.cells[x][y];
                     if(currentCell.getType().equals(CellType.MINE)) counter++;
                 }

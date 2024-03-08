@@ -4,5 +4,8 @@
         "src"
     ],
     "java.debug.settings.onBuildFailureProceed": true,
-    "cmake.configureOnOpen": false
+    "cmake.configureOnOpen": false,
+    "files.watcherExclude": {
+        "**/target": true
+    }
 }
