@@ -8,8 +8,7 @@ public class CellImpl implements Cell{
 
     @Override
     public CellType getType() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getType'");
+        return this.type;
     }
 
     @Override
@@ -20,8 +19,7 @@ public class CellImpl implements Cell{
 
     @Override
     public boolean isFlagged() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isFlagged'");
+        return this.flag;
     }
 
     @Override
