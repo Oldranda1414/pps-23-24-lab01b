@@ -15,6 +15,7 @@ import e2.grid.CellType;
 public class CellTest {
     
     private Cell cell;
+    private final int ADIACENT_MINES = 3;
 
     @BeforeEach
     void beforeEach(){
@@ -25,7 +26,8 @@ public class CellTest {
     void initTest(){
         assertAll(
             () -> assertFalse(cell.isFlagged()),
-            () -> assertEquals(CellType.EMPTY, cell.getType())
+            () -> assertEquals(CellType.EMPTY, cell.getType()),
+            () -> assertFalse(cell.getAdiacentMines().isPresent())
         );
     }
 
@@ -39,5 +41,10 @@ public class CellTest {
     void flagTest(){
         cell.setFlag(true);
         assertTrue(cell.isFlagged());
+    }
+
+    @Test void adiacentMinesTest(){
+        cell.setAdiacentMines(ADIACENT_MINES);
+        assertEquals(ADIACENT_MINES, cell.getAdiacentMines().get());
     }
 }

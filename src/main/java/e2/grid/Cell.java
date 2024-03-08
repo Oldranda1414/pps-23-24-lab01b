@@ -1,5 +1,7 @@
 package e2.grid;
 
+import java.util.Optional;
+
 public interface Cell {
 
     /**
@@ -25,4 +27,16 @@ public interface Cell {
      * @param bool
      */
     public void setFlag(boolean bool);
+
+    /**
+     * getter for private attribute adiacentMines
+     * @return
+     */
+    public Optional<Integer> getAdiacentMines();
+
+    /**
+     * setter for private attribute adiacentMines
+     * @param adiacentMines
+     */
+    public void setAdiacentMines(int adiacentMines);
 }

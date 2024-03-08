@@ -1,10 +1,12 @@
 package e2.grid;
 
-//TODO CHECK IF CONSTRUCTOR IS EVER USED
+import java.util.Optional;
+
 public class CellImpl implements Cell{
 
     private CellType type = CellType.EMPTY;
     private boolean flag = false;
+    private Optional<Integer> adiacentMines = Optional.ofNullable(null);
 
     @Override
     public CellType getType() {
@@ -25,5 +27,20 @@ public class CellImpl implements Cell{
     public void setFlag(boolean bool) {
         this.flag = bool;
     }
+
+	@Override
+	public Optional<Integer> getAdiacentMines() {
+        if(this.adiacentMines.isPresent()){
+            return Optional.of(this.adiacentMines.get());
+        }
+        else{
+            return Optional.ofNullable(null);
+        }
+	}
+
+	@Override
+	public void setAdiacentMines(int adiacentMines) {
+        this.adiacentMines = Optional.of(adiacentMines);
+	}
 
 }
