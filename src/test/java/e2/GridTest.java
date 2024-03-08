@@ -9,7 +9,6 @@ import e2.grid.Cell;
 import e2.grid.CellType;
 import e2.grid.Grid;
 import e2.grid.GridImpl;
-import e2.utils.Pair;
 
 public class GridTest {
 
@@ -27,7 +26,7 @@ public class GridTest {
         int minesCounter = 0;
         for(int x = 0; x < SIZE; x++){
             for(int y = 0; y < SIZE; y++){
-                var cell = grid.getCell(new Pair<>(x, y));
+                var cell = grid.getCell(x, y);
                 if(cell.getType().equals(CellType.MINE)){
                     minesCounter++;
                 }
@@ -40,7 +39,7 @@ public class GridTest {
     void numberOfAdiacentMinesTest(){
         for(int x = 0; x < SIZE; x++){
             for(int y = 0; y < SIZE; y++){
-                var adiacentNumber = grid.getAdiacentMines(new Pair<Integer,Integer>(x, y));
+                var adiacentNumber = grid.getAdiacentMines(x, y);
                 if(adiacentNumber.isPresent()){
                     assertEquals(countAdiacentMines(x, y), adiacentNumber.get());
                 }
@@ -57,7 +56,7 @@ public class GridTest {
         for(var x : ADIACENT_X){
             for(var y : ADIACENT_Y){
                 if(x != X && y != Y && isValidPosition(x, y)){
-                    Cell currentCell = grid.getCell(new Pair<Integer,Integer>(x, y));
+                    Cell currentCell = grid.getCell(x, y);
                     if(currentCell.getType().equals(CellType.MINE)) counter++;
                 }
             }

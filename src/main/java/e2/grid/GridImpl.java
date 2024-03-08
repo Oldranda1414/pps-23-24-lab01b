@@ -19,13 +19,13 @@ public class GridImpl implements Grid{
     }
     
     @Override
-    public Cell getCell(Pair<Integer, Integer> position) {
-        return this.cells[position.getX()][position.getY()];
+    public Cell getCell(final int X, final int Y) {
+        return this.cells[X][Y];
     }
     
     @Override
-    public Optional<Integer> getAdiacentMines(Pair<Integer, Integer> position) {
-        return this.cells[position.getX()][position.getY()].getAdiacentMines();
+    public Optional<Integer> getAdiacentMines(final int X, final int Y) {
+        return this.cells[X][Y].getAdiacentMines();
     }
 
     private void setUpGrid(){
