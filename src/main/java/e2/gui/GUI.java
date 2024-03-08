@@ -1,9 +1,11 @@
-package e2;
+package e2.gui;
 
 import javax.swing.*;
 import javax.swing.event.MouseInputAdapter;
 import javax.swing.event.MouseInputListener;
 
+import e2.logics.Logics;
+import e2.logics.LogicsImpl;
 import e2.utils.Pair;
 
 import java.util.*;

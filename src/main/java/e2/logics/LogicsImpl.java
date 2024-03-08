@@ -1,4 +1,4 @@
-package e2;
+package e2.logics;
 
 import java.util.ArrayList;
 import java.util.Random;
