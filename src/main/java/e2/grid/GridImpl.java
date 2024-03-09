@@ -3,6 +3,8 @@ package e2.grid;
 import java.util.Optional;
 
 import e2.utils.RandomPairGenerator;
+import e2.strategy.AdiacentStrategy;
+import e2.strategy.NumberStrategy;
 import e2.utils.Pair;
 
 public class GridImpl implements Grid{
@@ -10,6 +12,7 @@ public class GridImpl implements Grid{
     private int size;
     private int nMines;
     private Cell[][] cells;
+    private NumberStrategy strategy = new AdiacentStrategy();
     
     public GridImpl(int size, int nMines){
         this.size = size;
@@ -61,37 +64,14 @@ public class GridImpl implements Grid{
         for(int x = 0; x < this.size; x++){
             for(int y = 0; y < this.size; y++){
                 if(!this.cells[x][y].getType().equals(CellType.MINE)){
-                    this.cells[x][y].setAdiacentMines(countAdiacentMines(x, y));
-                    this.cells[x][y].setType(CellType.NUMBER);
+                    final int cellNumber = this.strategy.calculateNumber(this.cells, x, y);
+                    if(cellNumber != 0){
+                        this.cells[x][y].setType(CellType.NUMBER);
+                        this.cells[x][y].setAdiacentMines(cellNumber);
+                    }
                 }
             }
         }
     }
 
-    private int countAdiacentMines(final int X, final int Y){
-        int counter = 0;
-
-        final int[] ADIACENT_X = {X, X - 1, X + 1};
-        final int[] ADIACENT_Y = {Y, Y - 1, Y + 1};
-
-        for(var x : ADIACENT_X){
-            for(var y : ADIACENT_Y){
-                if(x != X && y != Y && isValidPosition(x, y)){
-                    Cell currentCell = this.cells[x][y];
-                    if(currentCell.getType().equals(CellType.MINE)) counter++;
-                }
-            }
-        }
-
-        return counter;
-    }
-
-    private boolean isValidPosition(final int X, final int Y){
-
-        if(X < this.size && X >= 0 && Y < this.size && Y >= 0){
-            return true;
-        }
-        return false;
-    }
-    
 }
