@@ -40,6 +40,7 @@ public class GUI extends JFrame {
                 quitGame();
                 JOptionPane.showMessageDialog(this, "You lost!!");
             } else {
+                bt.setEnabled(false);
                 drawBoard();            	
             }
             boolean isThereVictory = false; // call the logic here to ask if there is victory
