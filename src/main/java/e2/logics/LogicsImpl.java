@@ -16,7 +16,7 @@ public class LogicsImpl implements Logics {
     }
 
     @Override
-    public boolean hasMine(Pair<Integer, Integer> position) {
+    public boolean hit(Pair<Integer, Integer> position) {
         Cell cell = this.grid.getCell(position.getX(), position.getY());
         return cell.getType().equals(CellType.MINE);
     }

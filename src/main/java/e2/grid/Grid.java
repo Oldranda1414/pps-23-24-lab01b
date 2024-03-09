@@ -9,4 +9,6 @@ public interface Grid {
     public Cell getCell(final int X, final int Y);
     
     public Optional<Integer> getAdiacentMines(final int X, final int Y);
+
+    public boolean hitCell(final int X, final int Y);
 }
