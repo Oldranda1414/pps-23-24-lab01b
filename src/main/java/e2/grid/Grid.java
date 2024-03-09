@@ -14,5 +14,5 @@ public interface Grid {
 
     public boolean hitCell(final int X, final int Y);
 
-    public ArrayList<Pair<Integer, Integer>> getMines();
+    public ArrayList<Pair<Integer, Integer>> getMinesPositions();
 }

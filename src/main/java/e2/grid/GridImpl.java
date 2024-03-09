@@ -32,7 +32,7 @@ public class GridImpl implements Grid{
     }
 
     @Override
-    public ArrayList<Pair<Integer, Integer>> getMines() {
+    public ArrayList<Pair<Integer, Integer>> getMinesPositions() {
         var mines = new ArrayList<Pair<Integer, Integer>>();
         for(int x = 0; x < this.cells.length; x++){
             for(int y = 0; y < this.cells[0].length; y++){

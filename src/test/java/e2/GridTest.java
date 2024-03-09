@@ -72,6 +72,6 @@ public class GridTest {
         var pair = new Pair<Integer,Integer>(MINE_X, MINE_Y);
         var mines = new ArrayList<Pair<Integer, Integer>>();
         mines.add(pair);
-        assertEquals(mines, grid.getMines());
+        assertEquals(mines, grid.getMinesPositions());
     }
 }

@@ -2,6 +2,8 @@ package e2;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -28,6 +30,19 @@ public class LogicsTest {
                 if(logics.hit(new Pair<>(x,y)))minesCounter++;
             }
         }
-       assertEquals(N_MINES, minesCounter); 
+        assertEquals(N_MINES, minesCounter); 
+    }
+
+    @Test
+    void getMinesTest(){
+        var mines = new ArrayList<Pair<Integer, Integer>>();
+        for(int x = 0; x < SIZE; x++){
+            for(int y = 0; y < SIZE; y++){
+                if(logics.hit(new Pair<>(x,y))){
+                    mines.add(new Pair<Integer,Integer>(x, y));
+                }
+            }
+        }
+        assertEquals(mines, logics.getMinesPosition());
     }
 }
