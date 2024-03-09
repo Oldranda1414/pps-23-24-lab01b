@@ -5,6 +5,7 @@ import e2.grid.Cell;
 import e2.grid.CellType;
 import e2.grid.Grid;
 import e2.grid.GridImpl;
+import e2.strategy.AdiacentStrategy;
 
 //TODO CHECK IF NON RANDOM CONSTRUCTOR IS USED
 //TODO CHECK IF SIZE AND N_MINES ATTRIBUITES ARE NECESSARY
@@ -17,7 +18,7 @@ public class LogicsImpl implements Logics {
     public LogicsImpl(final int SIZE, final int N_MINES) {
         this.SIZE = SIZE;
         this.N_MINES = N_MINES;
-        this.grid = new GridImpl(this.SIZE, this.N_MINES);
+        this.grid = new GridImpl(this.SIZE, this.N_MINES, new AdiacentStrategy());
     }
 
     public LogicsImpl(final int SIZE, final int N_MINES, Grid grid) {

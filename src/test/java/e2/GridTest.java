@@ -9,6 +9,7 @@ import e2.grid.Cell;
 import e2.grid.CellType;
 import e2.grid.Grid;
 import e2.grid.GridImpl;
+import e2.strategy.AdiacentStrategy;
 
 public class GridTest {
 
@@ -18,7 +19,7 @@ public class GridTest {
     
     @BeforeEach
     void beforeEach(){
-        grid = new GridImpl(SIZE, N_MINES);
+        grid = new GridImpl(SIZE, N_MINES, new AdiacentStrategy());
     }
     
     @Test

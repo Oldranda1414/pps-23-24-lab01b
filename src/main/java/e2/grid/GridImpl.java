@@ -3,7 +3,6 @@ package e2.grid;
 import java.util.Optional;
 
 import e2.utils.RandomPairGenerator;
-import e2.strategy.AdiacentStrategy;
 import e2.strategy.NumberStrategy;
 import e2.utils.Pair;
 
@@ -12,12 +11,13 @@ public class GridImpl implements Grid{
     private int size;
     private int nMines;
     private Cell[][] cells;
-    private NumberStrategy strategy = new AdiacentStrategy();
+    private NumberStrategy strategy;
     
-    public GridImpl(int size, int nMines){
+    public GridImpl(int size, int nMines, NumberStrategy strategy){
         this.size = size;
         this.nMines = nMines;
         this.cells = new Cell[this.size][this.size];
+        this.strategy = strategy;
         setUpGrid();
     }
     
