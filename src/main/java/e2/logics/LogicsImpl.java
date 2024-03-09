@@ -7,7 +7,6 @@ import e2.grid.Grid;
 import e2.grid.GridImpl;
 import e2.strategy.AdiacentStrategy;
 
-//TODO CHECK IF NON RANDOM CONSTRUCTOR IS USED
 //TODO CHECK IF SIZE AND N_MINES ATTRIBUITES ARE NECESSARY
 public class LogicsImpl implements Logics {
 
