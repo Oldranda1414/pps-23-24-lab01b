@@ -78,10 +78,9 @@ public class GUI extends JFrame {
     
     private void quitGame() {
         this.drawBoard();
-        var minesPosition = this.logics.getMinesPosition();
     	for (var entry: this.buttons.entrySet()) {
             var pos = entry.getValue();
-            if(minesPosition.contains(pos)){
+            if(this.logics.hasMine(pos)){
                 entry.getKey().setText("*");
             }
             // call the logic here
