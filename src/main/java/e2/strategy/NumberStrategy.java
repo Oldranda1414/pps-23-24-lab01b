@@ -1,6 +1,6 @@
 package e2.strategy;
 
-import e2.grid.Cell;
+import e2.cell.Cell;
 
 public interface NumberStrategy {
 

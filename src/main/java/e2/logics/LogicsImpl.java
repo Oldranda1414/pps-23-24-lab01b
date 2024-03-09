@@ -1,8 +1,8 @@
 package e2.logics;
 
 import e2.utils.Pair;
-import e2.grid.Cell;
-import e2.grid.CellType;
+import e2.cell.Cell;
+import e2.cell.CellType;
 import e2.grid.Grid;
 import e2.grid.GridImpl;
 import e2.strategy.AdiacentStrategy;

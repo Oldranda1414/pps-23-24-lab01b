@@ -5,9 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import e2.grid.Cell;
-import e2.grid.CellImpl;
-import e2.grid.CellType;
+import e2.cell.Cell;
+import e2.cell.CellImpl;
+import e2.cell.CellType;
 import e2.strategy.AdiacentStrategy;
 import e2.strategy.NumberStrategy;
 

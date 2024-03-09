@@ -3,6 +3,9 @@ package e2.grid;
 import java.util.Optional;
 
 import e2.utils.RandomPairGenerator;
+import e2.cell.Cell;
+import e2.cell.CellImpl;
+import e2.cell.CellType;
 import e2.strategy.NumberStrategy;
 import e2.utils.Pair;
 
