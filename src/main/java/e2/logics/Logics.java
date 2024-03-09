@@ -1,7 +1,5 @@
 package e2.logics;
 
-import java.util.ArrayList;
-
 import e2.utils.Pair;
 
 public interface Logics {
@@ -13,6 +11,5 @@ public interface Logics {
      */
     public boolean hit(Pair<Integer, Integer> position);
 
-    public ArrayList<Pair<Integer, Integer>> getMinesPosition();
-
+    public boolean hasMine(Pair<Integer, Integer> position);
 }

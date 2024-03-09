@@ -1,7 +1,5 @@
 package e2;
 
-import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -14,7 +12,6 @@ import e2.cell.Cell;
 import e2.cell.CellImpl;
 import e2.grid.Grid;
 import e2.grid.GridImpl;
-import e2.utils.Pair;
 
 public class GridTest {
 
@@ -49,14 +46,9 @@ public class GridTest {
     }
     
     @Test
-    void getCellTest(){
-        assertEquals(firstCell, grid.getCell(CELL_X, CELL_Y));
-    }
-
-    @Test
     void getAdiacentMinesTest(){
         firstCell.setAdiacentMines(ADIACENT_MINES);
-        assertEquals(ADIACENT_MINES, grid.getAdiacentMines(CELL_X, CELL_Y).get());
+        assertEquals(ADIACENT_MINES, grid.getNumberOnCell(CELL_X, CELL_Y).get());
     }
 
     @Test
@@ -67,11 +59,12 @@ public class GridTest {
         );
     }
 
-    @Test
-    void getMinePositionsTest(){
-        var pair = new Pair<Integer,Integer>(MINE_X, MINE_Y);
-        var mines = new ArrayList<Pair<Integer, Integer>>();
-        mines.add(pair);
-        assertEquals(mines, grid.getMinesPositions());
+    @Test 
+    void hasMineTest(){
+        assertAll(
+            () -> assertFalse(grid.hitCell(CELL_X, CELL_Y)),
+            () -> assertTrue(grid.hitCell(MINE_X, MINE_Y))
+        );
     }
+
 }

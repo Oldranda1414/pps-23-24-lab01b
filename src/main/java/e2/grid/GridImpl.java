@@ -1,10 +1,8 @@
 package e2.grid;
 
-import java.util.ArrayList;
 import java.util.Optional;
 
 import e2.cell.Cell;
-import e2.utils.Pair;
 
 public class GridImpl implements Grid{
     
@@ -15,12 +13,7 @@ public class GridImpl implements Grid{
     }
     
     @Override
-    public Cell getCell(final int X, final int Y) {
-        return this.cells[X][Y];
-    }
-    
-    @Override
-    public Optional<Integer> getAdiacentMines(final int X, final int Y) {
+    public Optional<Integer> getNumberOnCell(final int X, final int Y) {
         return this.cells[X][Y].getAdiacentMines();
     }
 
@@ -32,16 +25,8 @@ public class GridImpl implements Grid{
     }
 
     @Override
-    public ArrayList<Pair<Integer, Integer>> getMinesPositions() {
-        var mines = new ArrayList<Pair<Integer, Integer>>();
-        for(int x = 0; x < this.cells.length; x++){
-            for(int y = 0; y < this.cells[0].length; y++){
-                if(this.cells[x][y].isMine()){
-                    mines.add(new Pair<Integer,Integer>(x, y));
-                }
-            }
-        }
-        return mines;
+    public boolean hasMine(int X, int Y) {
+        return this.cells[X][Y].isMine();
     }
 
 }

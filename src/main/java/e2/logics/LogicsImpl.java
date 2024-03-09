@@ -2,8 +2,6 @@ package e2.logics;
 
 import e2.utils.Pair;
 
-import java.util.ArrayList;
-
 import e2.grid.Grid;
 import e2.grid.GridBuilderImpl;
 import e2.strategy.AdiacentStrategy;
@@ -22,8 +20,8 @@ public class LogicsImpl implements Logics {
     }
 
     @Override
-    public ArrayList<Pair<Integer, Integer>> getMinesPosition() {
-        return this.grid.getMinesPositions();
+    public boolean hasMine(Pair<Integer, Integer> position) {
+        return this.grid.hasMine(position.getX(), position.getY());
     }
 
 }

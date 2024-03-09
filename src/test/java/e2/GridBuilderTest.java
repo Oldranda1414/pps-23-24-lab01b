@@ -30,8 +30,7 @@ public class GridBuilderTest {
         int minesCounter = 0;
         for(int x = 0; x < SIZE; x++){
             for(int y = 0; y < SIZE; y++){
-                var cell = grid.getCell(x, y);
-                if(cell.isMine()){
+                if(grid.hasMine(x, y)){
                     minesCounter++;
                 }
             }
