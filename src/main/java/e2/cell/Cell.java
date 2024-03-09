@@ -5,18 +5,6 @@ import java.util.Optional;
 public interface Cell {
 
     /**
-     * getter for private attribute type
-     * @return
-     */
-    public CellType getType();
-
-    /**
-     * setter for private attribute type
-     * @param type
-     */
-    public void setType(CellType type);
-
-    /**
      * getter for private attribute flag
      * @return
      */
@@ -51,4 +39,16 @@ public interface Cell {
      * @param bool
      */
     public void setVisible(boolean bool);
+
+    /**
+     * getter for private attribute isMine
+     * @return
+     */
+    public boolean isMine();
+
+    /**
+     * setter for private attribute isMine
+     * @return
+     */
+    public void setIsMine(boolean bool);
 }

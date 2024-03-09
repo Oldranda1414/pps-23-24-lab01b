@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 
 import e2.cell.Cell;
 import e2.cell.CellImpl;
-import e2.cell.CellType;
 import e2.strategy.AdiacentStrategy;
 import e2.strategy.NumberStrategy;
 
@@ -44,7 +43,7 @@ public class AdiacentStrategyTest {
             for(var y : ADIACENT_Y){
                 if(x != X && y != Y && isValidPosition(x, y)){
                     Cell currentCell = cells[x][y];
-                    if(currentCell.getType().equals(CellType.MINE)) counter++;
+                    if(currentCell.isMine()) counter++;
                 }
             }
         }
@@ -65,7 +64,7 @@ public class AdiacentStrategyTest {
             for(int y = 0; y < SIZE; y++){
                 cells[x][y] = new CellImpl();
                 if(x == y){
-                    cells[x][y].setType(CellType.MINE);
+                    cells[x][y].setIsMine(true);
                 }
             }
         }

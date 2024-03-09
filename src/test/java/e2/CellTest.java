@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 
 import e2.cell.Cell;
 import e2.cell.CellImpl;
-import e2.cell.CellType;
 
 public class CellTest {
     
@@ -26,15 +25,9 @@ public class CellTest {
     void initTest(){
         assertAll(
             () -> assertFalse(cell.isFlagged()),
-            () -> assertEquals(CellType.EMPTY, cell.getType()),
-            () -> assertFalse(cell.getAdiacentMines().isPresent())
+            () -> assertFalse(cell.getAdiacentMines().isPresent()),
+            () -> assertFalse(cell.isMine())
         );
-    }
-
-    @Test
-    void typeTest(){
-        cell.setType(CellType.MINE);
-        assertEquals(CellType.MINE, cell.getType());
     }
 
     @Test
@@ -54,5 +47,12 @@ public class CellTest {
         assertFalse(cell.isVisible());
         cell.setVisible(true);
         assertTrue(cell.isVisible());
+    }
+
+    @Test
+    void isMineTest(){
+        assertFalse(cell.isMine());
+        cell.setIsMine(true);
+        assertTrue(cell.isMine());
     }
 }

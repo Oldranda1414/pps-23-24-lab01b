@@ -1,7 +1,6 @@
 package e2.strategy;
 
 import e2.cell.Cell;
-import e2.cell.CellType;
 
 public class AdiacentStrategy implements NumberStrategy{
 
@@ -21,7 +20,7 @@ public class AdiacentStrategy implements NumberStrategy{
             for(var y : ADIACENT_Y){
                 if(x != X && y != Y && isValidPosition(x, y, SIZE_X, SIZE_Y)){
                     Cell currentCell = cells[x][y];
-                    if(currentCell.getType().equals(CellType.MINE)) counter++;
+                    if(currentCell.isMine()) counter++;
                 }
             }
         }

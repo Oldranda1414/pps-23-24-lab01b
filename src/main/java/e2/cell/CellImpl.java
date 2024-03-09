@@ -4,20 +4,10 @@ import java.util.Optional;
 
 public class CellImpl implements Cell{
 
-    private CellType type = CellType.EMPTY;
     private boolean flag = false;
     private Optional<Integer> adiacentMines = Optional.ofNullable(null);
     private boolean visible = false;
-
-    @Override
-    public CellType getType() {
-        return this.type;
-    }
-
-    @Override
-    public void setType(CellType type) {
-        this.type = type;
-    }
+    private boolean isMine = false;
 
     @Override
     public boolean isFlagged() {
@@ -31,12 +21,7 @@ public class CellImpl implements Cell{
 
 	@Override
 	public Optional<Integer> getAdiacentMines() {
-        if(this.adiacentMines.isPresent()){
-            return Optional.of(this.adiacentMines.get());
-        }
-        else{
-            return Optional.ofNullable(null);
-        }
+        return this.adiacentMines;
 	}
 
 	@Override
@@ -52,6 +37,16 @@ public class CellImpl implements Cell{
     @Override
     public void setVisible(boolean bool) {
         this.visible = bool;
+    }
+
+    @Override
+    public boolean isMine() {
+        return this.isMine;
+    }
+
+    @Override
+    public void setIsMine(boolean bool) {
+        this.isMine = bool;
     }
 
 }

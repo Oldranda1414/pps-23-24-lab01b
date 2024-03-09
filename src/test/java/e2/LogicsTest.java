@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import e2.cell.Cell;
 import e2.logics.Logics;
 import e2.logics.LogicsImpl;
 import e2.utils.Pair;

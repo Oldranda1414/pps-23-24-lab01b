@@ -2,7 +2,6 @@ package e2.grid;
 
 import e2.cell.Cell;
 import e2.cell.CellImpl;
-import e2.cell.CellType;
 import e2.strategy.NumberStrategy;
 import e2.utils.Pair;
 import e2.utils.RandomPairGenerator;
@@ -39,18 +38,17 @@ public class GridBuilderImpl implements GridBuilder{
             do{
                 pair = RANDOM.nextPair();
                 cell = cells[pair.getX()][pair.getY()];
-            }while(cell.getType().equals(CellType.MINE));
-            cells[pair.getX()][pair.getY()].setType(CellType.MINE);
+            }while(cell.isMine());
+            cells[pair.getX()][pair.getY()].setIsMine(true);
         }
     }
 
     private void setAdiacentNumbers(Cell[][] cells, final NumberStrategy STRATEGY){
         for(int x = 0; x < cells.length; x++){
             for(int y = 0; y < cells[0].length; y++){
-                if(!cells[x][y].getType().equals(CellType.MINE)){
+                if(!cells[x][y].isMine()){
                     final int cellNumber = STRATEGY.calculateNumber(cells, x, y);
                     if(cellNumber != 0){
-                        cells[x][y].setType(CellType.NUMBER);
                         cells[x][y].setAdiacentMines(cellNumber);
                     }
                 }

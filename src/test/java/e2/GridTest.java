@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 
 import e2.cell.Cell;
 import e2.cell.CellImpl;
-import e2.cell.CellType;
 import e2.grid.Grid;
 import e2.grid.GridImpl;
 
@@ -31,7 +30,7 @@ public class GridTest {
     void beforeEach(){
         cell = new CellImpl();
         mine = new CellImpl();
-        mine.setType(CellType.MINE);
+        mine.setIsMine(true);
         cells = new Cell[SIZE][SIZE];
         cells[CELL_X][CELL_Y] = cell;
         cells[MINE_X][MINE_Y] = mine;
