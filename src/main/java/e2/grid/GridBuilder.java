@@ -10,5 +10,5 @@ public interface GridBuilder {
      * @param strategy
      * @return builds a grid with the specified parameters
      */
-    public Grid build(final int SIZE, final int N_MINES, final NumberStrategy strategy);
+    public Grid build(final int SIZE, final int N_MINES, final NumberStrategy STRATEGY);
 }
