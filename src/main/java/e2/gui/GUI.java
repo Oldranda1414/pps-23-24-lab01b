@@ -1,18 +1,22 @@
 package e2.gui;
 
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.event.MouseInputAdapter;
 import javax.swing.event.MouseInputListener;
 
 import e2.logics.Logics;
 import e2.logics.LogicsImpl;
 import e2.utils.Pair;
-
-import java.util.*;
-import java.util.Map.Entry;
-import java.awt.*;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
 
 public class GUI extends JFrame {
     
@@ -77,17 +81,15 @@ public class GUI extends JFrame {
             if(this.logics.hasMine(entry.getValue())){
                 var button = entry.getKey();
                 button.setText("*");
-                button.setEnabled(false);
             }
+            // call the logic here
+            // if this button is a mine, draw it "*"
+            // disable the button
     	}
     }
 
     private void drawBoard() {
         for (var entry: this.buttons.entrySet()) {
-            if(this.logics.hasMine(entry.getValue())){
-                var button = entry.getKey();
-                button.setText("*");
-            }
             // call the logic here
             // if this button is a cell with counter, put the number
             // if this button has a flag, put the flag

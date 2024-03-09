@@ -5,27 +5,14 @@ import e2.cell.Cell;
 import e2.cell.CellType;
 import e2.grid.Grid;
 import e2.grid.GridBuilderImpl;
-import e2.grid.GridImpl;
 import e2.strategy.AdiacentStrategy;
 
-//TODO CHECK IF SIZE AND N_MINES ATTRIBUITES ARE NECESSARY
 public class LogicsImpl implements Logics {
 
-    private int SIZE;
-    private int N_MINES;
     private Grid grid;
 
     public LogicsImpl(final int SIZE, final int N_MINES) {
-        this.SIZE = SIZE;
-        this.N_MINES = N_MINES;
-        final GridBuilder BUILDER = new GridBuilderImpl();
-        this.grid = new GridImpl(this.SIZE, this.N_MINES, new AdiacentStrategy());
-    }
-
-    public LogicsImpl(final int SIZE, final int N_MINES, Grid grid) {
-        this.SIZE = SIZE;
-        this.N_MINES = N_MINES;
-        this.grid = grid;
+        this.grid = new GridBuilderImpl().build(SIZE, N_MINES, new AdiacentStrategy());
     }
 
     @Override
