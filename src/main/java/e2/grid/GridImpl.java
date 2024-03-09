@@ -25,8 +25,8 @@ public class GridImpl implements Grid{
 
     @Override
     public boolean hitCell(int X, int Y) {
-        this.cells[X][Y].setVisible(true);
         boolean isMine = this.cells[X][Y].getType().equals(CellType.MINE);
+        if(!isMine) this.cells[X][Y].setVisible(true);
         return isMine;
     }
 
