@@ -39,4 +39,16 @@ public interface Cell {
      * @param adiacentMines
      */
     public void setAdiacentMines(int adiacentMines);
+
+    /**
+     * getter for private attribute visible
+     * @return
+     */
+    public boolean isVisible();
+
+    /**
+     * setter for private attribute visible
+     * @param bool
+     */
+    public void setVisible(boolean bool);
 }

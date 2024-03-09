@@ -7,6 +7,7 @@ public class CellImpl implements Cell{
     private CellType type = CellType.EMPTY;
     private boolean flag = false;
     private Optional<Integer> adiacentMines = Optional.ofNullable(null);
+    private boolean visible = false;
 
     @Override
     public CellType getType() {
@@ -42,5 +43,15 @@ public class CellImpl implements Cell{
 	public void setAdiacentMines(int adiacentMines) {
         this.adiacentMines = Optional.of(adiacentMines);
 	}
+
+    @Override
+    public boolean isVisible() {
+        return this.visible;
+    }
+
+    @Override
+    public void setVisible(boolean bool) {
+        this.visible = bool;
+    }
 
 }

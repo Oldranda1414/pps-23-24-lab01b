@@ -43,8 +43,16 @@ public class CellTest {
         assertTrue(cell.isFlagged());
     }
 
-    @Test void adiacentMinesTest(){
+    @Test 
+    void adiacentMinesTest(){
         cell.setAdiacentMines(ADIACENT_MINES);
         assertEquals(ADIACENT_MINES, cell.getAdiacentMines().get());
+    }
+
+    @Test
+    void visibleTest(){
+        assertFalse(cell.isVisible());
+        cell.setVisible(true);
+        assertTrue(cell.isVisible());
     }
 }
