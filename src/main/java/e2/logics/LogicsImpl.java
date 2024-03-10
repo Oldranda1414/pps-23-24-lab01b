@@ -55,4 +55,9 @@ public class LogicsImpl implements Logics {
         return this.grid.isFlagged(position.getX(), position.getY());
     }
 
+    @Override
+    public boolean isGameWon() {
+        return this.grid.isGameWon();
+    }
+
 }

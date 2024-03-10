@@ -42,4 +42,9 @@ public interface Logics {
      * @return true if the cell a tposition is flagged, false otherwise
      */
     public boolean isFlagged(Pair<Integer, Integer> position);
+
+    /**
+     * @return true if the game has been won, false otherwise
+     */
+    public boolean isGameWon();
 }

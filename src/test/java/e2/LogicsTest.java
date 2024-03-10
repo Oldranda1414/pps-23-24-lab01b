@@ -70,6 +70,16 @@ public class LogicsTest extends DefaultGrid{
         logics.switchFlag(new Pair<Integer,Integer>(CELL_X, CELL_Y));
         assertFalse(logics.isFlagged(new Pair<Integer,Integer>(CELL_X, CELL_Y)));
     }
+
+    @Test
+    void isGameWonTest(){
+        defaultInit();
+        assertFalse(logics.isGameWon());
+        logics.hit(new Pair<Integer,Integer>(CELL_X, CELL_Y));
+        logics.hit(new Pair<Integer,Integer>(SECOND_CELL_X, SECOND_CELL_Y));
+        logics.hit(new Pair<Integer,Integer>(THIRD_CELL_X, THIRD_CELL_Y));
+        assertTrue(logics.isGameWon());
+    }
     
     private void defaultInit(){
         setup();
