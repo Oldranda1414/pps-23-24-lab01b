@@ -24,4 +24,10 @@ public interface Logics {
      * @return number on the cell at position, null if cell has no number
      */
     public Optional<String> getCellText(Pair<Integer, Integer> position);
+
+    /**
+     * @param position
+     * @return true if the cell at position is visible, false otherwise
+     */
+    public boolean isVisible(Pair<Integer, Integer> position);
 }

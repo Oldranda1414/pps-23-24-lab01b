@@ -39,4 +39,9 @@ public class LogicsImpl implements Logics {
         return Optional.ofNullable(null);
     }
 
+	@Override
+	public boolean isVisible(Pair<Integer, Integer> position) {
+        return this.grid.isVisible(position.getX(), position.getY());
+	}
+
 }

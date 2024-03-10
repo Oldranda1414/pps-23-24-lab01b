@@ -40,7 +40,6 @@ public class GUI extends JFrame {
                 quitGame();
                 JOptionPane.showMessageDialog(this, "You lost!!");
             } else {
-                bt.setEnabled(false);
                 drawBoard();	
             }
             boolean isThereVictory = false; // call the logic here to ask if there is victory
@@ -94,8 +93,11 @@ public class GUI extends JFrame {
             var bt = entry.getKey();
             Pair<Integer, Integer> pos = entry.getValue();
             var text = this.logics.getCellText(pos);
-            if(this.logics.isVisible(pos) && text.isPresent()){
-                bt.setText(text.get());
+            if(this.logics.isVisible(pos)){
+                bt.setEnabled(false);
+                if(text.isPresent()){
+                    bt.setText(text.get());
+                }
             }
             // call the logic here
             // if this button is a cell with counter, put the number

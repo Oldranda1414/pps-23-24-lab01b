@@ -3,6 +3,7 @@ package e2;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -46,6 +47,17 @@ public class LogicsTest extends DefaultGrid{
         assertAll(
             () -> assertFalse(logics.getCellText(new Pair<Integer,Integer>(CELL_X, CELL_Y)).isPresent()),
             () -> assertFalse(logics.getCellText(new Pair<Integer,Integer>(SECOND_CELL_X, SECOND_CELL_Y)).isPresent())
+        );
+    }
+
+    @Test
+    void isVisibleTest(){
+        setup();
+        logics = new LogicsImpl(grid);
+        logics.hit(new Pair<Integer,Integer>(CELL_X, CELL_Y));
+        assertAll(
+            () -> assertTrue(logics.isVisible(new Pair<Integer,Integer>(CELL_X, CELL_Y))),
+            () -> assertFalse(logics.isVisible(new Pair<Integer,Integer>(SECOND_CELL_X, SECOND_CELL_Y)))
         );
     }
     
