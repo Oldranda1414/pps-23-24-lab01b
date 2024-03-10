@@ -9,4 +9,6 @@ public interface Grid {
     public boolean hitCell(final int X, final int Y);
 
     public boolean hasMine(final int X, final int Y);
+
+    public boolean isVisible(final int X, final int Y);
 }

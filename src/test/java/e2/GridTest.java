@@ -37,4 +37,13 @@ public class GridTest extends DefaultGrid{
         );
     }
 
+    @Test
+    void isVisibleTest(){
+        grid.hitCell(CELL_X, CELL_Y);
+        assertAll(
+            () -> assertTrue(grid.isVisible(CELL_X, CELL_Y)),
+            () -> assertFalse(grid.isVisible(SECOND_CELL_X, SECOND_CELL_Y))
+        );
+    }
+
 }

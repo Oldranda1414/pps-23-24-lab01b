@@ -29,4 +29,9 @@ public class GridImpl implements Grid{
         return this.cells[X][Y].isMine();
     }
 
+    @Override
+    public boolean isVisible(int X, int Y) {
+        return this.cells[X][Y].isVisible();
+    }
+
 }
