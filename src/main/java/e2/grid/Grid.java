@@ -15,4 +15,6 @@ public interface Grid {
     public void setFlag(boolean bool, final int X, final int Y);
 
     public boolean isFlagged(final int X, final int Y);
+
+    public boolean isGameWon();
 }

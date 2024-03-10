@@ -56,4 +56,12 @@ public class GridTest extends DefaultGrid{
         );
     }
 
+    @Test
+    void isGameWonTest(){
+        assertFalse(grid.isGameWon());
+        grid.hitCell(CELL_X, CELL_Y);
+        grid.hitCell(SECOND_CELL_X, SECOND_CELL_Y);
+        grid.hitCell(THIRD_CELL_X, THIRD_CELL_Y);
+        assertTrue(grid.isGameWon());
+    }
 }

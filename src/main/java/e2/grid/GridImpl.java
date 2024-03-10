@@ -49,4 +49,16 @@ public class GridImpl implements Grid{
         return this.cells[X][Y].isFlagged();
     }
 
+    @Override
+    public boolean isGameWon() {
+        for(var array: cells){
+            for(var cell: array){
+                if(!cell.isMine() && !cell.isVisible()){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
 }
