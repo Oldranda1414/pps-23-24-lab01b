@@ -49,7 +49,7 @@ public class GridBuilderImpl implements GridBuilder{
                 if(!cells[x][y].isMine()){
                     final int cellNumber = STRATEGY.calculateNumber(cells, x, y);
                     if(cellNumber != 0){
-                        cells[x][y].setAdiacentMines(cellNumber);
+                        cells[x][y].setNumber(cellNumber);
                     }
                 }
             }

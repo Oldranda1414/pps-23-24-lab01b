@@ -5,7 +5,7 @@ import java.util.Optional;
 public class CellImpl implements Cell{
 
     private boolean flag = false;
-    private Optional<Integer> adiacentMines = Optional.ofNullable(null);
+    private Optional<Integer> number = Optional.ofNullable(null);
     private boolean visible = false;
     private boolean isMine = false;
 
@@ -20,13 +20,13 @@ public class CellImpl implements Cell{
     }
 
 	@Override
-	public Optional<Integer> getAdiacentMines() {
-        return this.adiacentMines;
+	public Optional<Integer> getNumber() {
+        return this.number;
 	}
 
 	@Override
-	public void setAdiacentMines(int adiacentMines) {
-        this.adiacentMines = Optional.of(adiacentMines);
+	public void setNumber(int adiacentMines) {
+        this.number = Optional.of(adiacentMines);
 	}
 
     @Override

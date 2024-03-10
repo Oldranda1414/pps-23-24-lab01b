@@ -14,7 +14,7 @@ public class GridImpl implements Grid{
     
     @Override
     public Optional<Integer> getNumberOnCell(final int X, final int Y) {
-        return this.cells[X][Y].getAdiacentMines();
+        return this.cells[X][Y].getNumber();
     }
 
     @Override

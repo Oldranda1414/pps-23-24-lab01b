@@ -25,7 +25,7 @@ public class CellTest {
     void initTest(){
         assertAll(
             () -> assertFalse(cell.isFlagged()),
-            () -> assertFalse(cell.getAdiacentMines().isPresent()),
+            () -> assertFalse(cell.getNumber().isPresent()),
             () -> assertFalse(cell.isMine())
         );
     }
@@ -38,8 +38,8 @@ public class CellTest {
 
     @Test 
     void adiacentMinesTest(){
-        cell.setAdiacentMines(ADIACENT_MINES);
-        assertEquals(ADIACENT_MINES, cell.getAdiacentMines().get());
+        cell.setNumber(ADIACENT_MINES);
+        assertEquals(ADIACENT_MINES, cell.getNumber().get());
     }
 
     @Test

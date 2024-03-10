@@ -17,16 +17,16 @@ public interface Cell {
     public void setFlag(boolean bool);
 
     /**
-     * getter for private attribute adiacentMines
+     * getter for private attribute number
      * @return
      */
-    public Optional<Integer> getAdiacentMines();
+    public Optional<Integer> getNumber();
 
     /**
-     * setter for private attribute adiacentMines
+     * setter for private attribute number
      * @param adiacentMines
      */
-    public void setAdiacentMines(int adiacentMines);
+    public void setNumber(int adiacentMines);
 
     /**
      * getter for private attribute visible
