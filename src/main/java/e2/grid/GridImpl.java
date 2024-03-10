@@ -17,11 +17,13 @@ public class GridImpl implements Grid{
     
     @Override
     public Optional<Integer> getNumberOnCell(final int X, final int Y) {
+        checkIfOutOfBounds(X, Y);
         return this.cells[X][Y].getNumber();
     }
 
     @Override
     public boolean hitCell(int X, int Y) {
+        checkIfOutOfBounds(X, Y);
         boolean isMine = this.cells[X][Y].isMine();
         if(!isMine){
             this.strategy.revealCell(cells, X, Y);
@@ -31,21 +33,25 @@ public class GridImpl implements Grid{
 
     @Override
     public boolean hasMine(int X, int Y) {
+        checkIfOutOfBounds(X, Y);
         return this.cells[X][Y].isMine();
     }
 
     @Override
     public boolean isVisible(int X, int Y) {
+        checkIfOutOfBounds(X, Y);
         return this.cells[X][Y].isVisible();
     }
 
     @Override
     public void setFlag(boolean bool, int X, int Y) {
+        checkIfOutOfBounds(X, Y);
         this.cells[X][Y].setFlag(bool);
     }
 
     @Override
     public boolean isFlagged(int X, int Y) {
+        checkIfOutOfBounds(X, Y);
         return this.cells[X][Y].isFlagged();
     }
 
@@ -59,6 +65,12 @@ public class GridImpl implements Grid{
             }
         }
         return true;
+    }
+
+    private void checkIfOutOfBounds(final int X, final int Y){
+        if(X >= this.cells.length || Y >= this.cells[0].length){
+            throw new IndexOutOfBoundsException();
+        }
     }
 
 }

@@ -3,6 +3,7 @@ package e2;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -10,6 +11,8 @@ import org.junit.jupiter.api.Test;
 
 //TODO TEST THROWS OUT OF BOUNDS EXEPTION
 public class GridTest extends DefaultGrid{
+
+    private final int OUT_OF_BOUNDS = 5;
 
     @BeforeEach
     void beforeEach(){
@@ -64,5 +67,17 @@ public class GridTest extends DefaultGrid{
         grid.hitCell(SECOND_CELL_X, SECOND_CELL_Y);
         grid.hitCell(THIRD_CELL_X, THIRD_CELL_Y);
         assertTrue(grid.isGameWon());
+    }
+
+    @Test
+    void outOfBoundsTest(){
+        assertAll(
+            () -> assertThrows(IndexOutOfBoundsException.class, () -> grid.getNumberOnCell(OUT_OF_BOUNDS, OUT_OF_BOUNDS)),
+            () -> assertThrows(IndexOutOfBoundsException.class, () -> grid.hitCell(OUT_OF_BOUNDS, OUT_OF_BOUNDS)),
+            () -> assertThrows(IndexOutOfBoundsException.class, () -> grid.hasMine(OUT_OF_BOUNDS, OUT_OF_BOUNDS)),
+            () -> assertThrows(IndexOutOfBoundsException.class, () -> grid.isVisible(OUT_OF_BOUNDS, OUT_OF_BOUNDS)),
+            () -> assertThrows(IndexOutOfBoundsException.class, () -> grid.setFlag(false, OUT_OF_BOUNDS, OUT_OF_BOUNDS)),
+            () -> assertThrows(IndexOutOfBoundsException.class, () -> grid.isFlagged(OUT_OF_BOUNDS, OUT_OF_BOUNDS))
+        );
     }
 }
