@@ -1,6 +1,6 @@
 package e2.grid;
 
-import e2.strategy.NumberStrategy;
+import e2.numberStrategy.NumberStrategy;
 
 public interface GridBuilder {
     

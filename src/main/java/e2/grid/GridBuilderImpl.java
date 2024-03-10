@@ -2,7 +2,7 @@ package e2.grid;
 
 import e2.cell.Cell;
 import e2.cell.CellImpl;
-import e2.strategy.NumberStrategy;
+import e2.numberStrategy.NumberStrategy;
 import e2.utils.Pair;
 import e2.utils.RandomPairGenerator;
 

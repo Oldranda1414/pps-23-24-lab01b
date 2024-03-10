@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 import e2.grid.Grid;
 import e2.grid.GridBuilder;
 import e2.grid.GridBuilderImpl;
-import e2.strategy.AdiacentStrategy;
-import e2.strategy.NumberStrategy;
+import e2.numberStrategy.AdiacentStrategy;
+import e2.numberStrategy.NumberStrategy;
 
 public class GridBuilderTest {
     

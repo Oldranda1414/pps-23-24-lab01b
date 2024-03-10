@@ -1,4 +1,4 @@
-package e2.strategy;
+package e2.numberStrategy;
 
 import e2.cell.Cell;
 

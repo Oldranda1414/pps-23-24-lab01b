@@ -6,7 +6,7 @@ import java.util.Optional;
 
 import e2.grid.Grid;
 import e2.grid.GridBuilderImpl;
-import e2.strategy.AdiacentStrategy;
+import e2.numberStrategy.AdiacentStrategy;
 
 public class LogicsImpl implements Logics {
 
