@@ -41,7 +41,7 @@ public class AdiacentStrategyTest {
 
         for(var x : ADIACENT_X){
             for(var y : ADIACENT_Y){
-                if(x != X && y != Y && isValidPosition(x, y)){
+                if((x != X || y != Y) && isValidPosition(x, y)){
                     Cell currentCell = cells[x][y];
                     if(currentCell.isMine()) counter++;
                 }

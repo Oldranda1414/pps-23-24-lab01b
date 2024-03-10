@@ -91,6 +91,12 @@ public class GUI extends JFrame {
 
     private void drawBoard() {
         for (var entry: this.buttons.entrySet()) {
+            var bt = entry.getKey();
+            Pair<Integer, Integer> pos = entry.getValue();
+            var text = this.logics.getCellText(pos);
+            if(!bt.isEnabled() && text.isPresent()){
+                bt.setText(text.get());
+            }
             // call the logic here
             // if this button is a cell with counter, put the number
             // if this button has a flag, put the flag

@@ -18,7 +18,7 @@ public class AdiacentStrategy implements NumberStrategy{
 
         for(var x : ADIACENT_X){
             for(var y : ADIACENT_Y){
-                if(x != X && y != Y && isValidPosition(x, y, SIZE_X, SIZE_Y)){
+                if((x != X || y != Y) && isValidPosition(x, y, SIZE_X, SIZE_Y)){
                     Cell currentCell = cells[x][y];
                     if(currentCell.isMine()) counter++;
                 }
