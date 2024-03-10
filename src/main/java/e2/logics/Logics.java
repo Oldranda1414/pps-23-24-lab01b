@@ -30,4 +30,16 @@ public interface Logics {
      * @return true if the cell at position is visible, false otherwise
      */
     public boolean isVisible(Pair<Integer, Integer> position);
+
+    /**
+     * switches the value of the flag of the cell at position
+     * @param position
+     */
+    public void switchFlag(Pair<Integer, Integer> position);
+
+    /**
+     * @param position
+     * @return true if the cell a tposition is flagged, false otherwise
+     */
+    public boolean isFlagged(Pair<Integer, Integer> position);
 }

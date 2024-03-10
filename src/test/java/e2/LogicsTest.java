@@ -34,16 +34,14 @@ public class LogicsTest extends DefaultGrid{
 
     @Test
     void numberCellTextTest(){
-        setup();
+        defaultInit();
         firstCell.setNumber(ADIACENT_MINES);
-        logics = new LogicsImpl(grid);
         assertEquals(Integer.toString(ADIACENT_MINES), logics.getCellText(new Pair<Integer,Integer>(CELL_X, CELL_Y)).get());
     }
 
     @Test
     void emptyCellTextTest(){
-        setup();
-        logics = new LogicsImpl(grid);
+        defaultInit();
         assertAll(
             () -> assertFalse(logics.getCellText(new Pair<Integer,Integer>(CELL_X, CELL_Y)).isPresent()),
             () -> assertFalse(logics.getCellText(new Pair<Integer,Integer>(SECOND_CELL_X, SECOND_CELL_Y)).isPresent())
@@ -52,8 +50,8 @@ public class LogicsTest extends DefaultGrid{
 
     @Test
     void isVisibleTest(){
-        setup();
-        logics = new LogicsImpl(grid);
+        defaultInit();
+        firstCell.setNumber(ADIACENT_MINES);
         logics.hit(new Pair<Integer,Integer>(CELL_X, CELL_Y));
         assertAll(
             () -> assertTrue(logics.isVisible(new Pair<Integer,Integer>(CELL_X, CELL_Y))),
@@ -61,4 +59,18 @@ public class LogicsTest extends DefaultGrid{
         );
     }
     
+    @Test
+    void cellFlagTest(){
+        defaultInit();
+        logics.switchFlag(new Pair<Integer,Integer>(CELL_X, CELL_Y));
+        assertAll(
+            () -> assertTrue(logics.isFlagged(new Pair<Integer,Integer>(CELL_X, CELL_Y))),
+            () -> assertFalse(logics.isFlagged(new Pair<Integer,Integer>(SECOND_CELL_X, SECOND_CELL_Y)))
+        );
+    }
+    
+    private void defaultInit(){
+        setup();
+        logics = new LogicsImpl(grid);
+    }
 }

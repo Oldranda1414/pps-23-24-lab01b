@@ -44,4 +44,15 @@ public class LogicsImpl implements Logics {
         return this.grid.isVisible(position.getX(), position.getY());
 	}
 
+    @Override
+    public void switchFlag(Pair<Integer, Integer> position) {
+        boolean bool = !this.grid.isFlagged(position.getX(), position.getY());
+        this.grid.setFlag(bool, position.getX(), position.getY());
+    }
+
+    @Override
+    public boolean isFlagged(Pair<Integer, Integer> position) {
+        return this.grid.isFlagged(position.getX(), position.getY());
+    }
+
 }
