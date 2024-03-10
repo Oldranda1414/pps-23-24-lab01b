@@ -67,6 +67,8 @@ public class LogicsTest extends DefaultGrid{
             () -> assertTrue(logics.isFlagged(new Pair<Integer,Integer>(CELL_X, CELL_Y))),
             () -> assertFalse(logics.isFlagged(new Pair<Integer,Integer>(SECOND_CELL_X, SECOND_CELL_Y)))
         );
+        logics.switchFlag(new Pair<Integer,Integer>(CELL_X, CELL_Y));
+        assertFalse(logics.isFlagged(new Pair<Integer,Integer>(CELL_X, CELL_Y)));
     }
     
     private void defaultInit(){
