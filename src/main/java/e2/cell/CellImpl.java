@@ -2,10 +2,11 @@ package e2.cell;
 
 import java.util.Optional;
 
+//TODO CAPTURE CONCEPT OF ADIACENCY
 public class CellImpl implements Cell{
 
     private boolean flag = false;
-    private Optional<Integer> number = Optional.ofNullable(null);
+    private Optional<Integer> number = Optional.empty();
     private boolean visible = false;
     private boolean isMine = false;
 

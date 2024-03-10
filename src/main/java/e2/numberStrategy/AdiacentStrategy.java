@@ -7,10 +7,10 @@ public class AdiacentStrategy implements NumberStrategy{
 
     @Override
     public int calculateNumber(Cell[][] cells, int X, int Y) {
-        return countAdiacentMines(cells, X, Y, cells.length, cells[0].length);
+        return countAdiacentMines(cells, X, Y);
     }
 
-    private int countAdiacentMines(Cell[][] cells, int X, int Y, int SIZE_X, int SIZE_Y){
+    private int countAdiacentMines(Cell[][] cells, int X, int Y){
         int counter = 0;
 
         final int[] ADIACENT_X = {X, X - 1, X + 1};
@@ -18,7 +18,7 @@ public class AdiacentStrategy implements NumberStrategy{
 
         for(var x : ADIACENT_X){
             for(var y : ADIACENT_Y){
-                if((x != X || y != Y) && isValidPosition(x, y, SIZE_X, SIZE_Y)){
+                if((x != X || y != Y) && isValidPosition(x, y, cells.length, cells[0].length)){
                     Cell currentCell = cells[x][y];
                     if(currentCell.isMine()) counter++;
                 }

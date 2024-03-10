@@ -36,7 +36,7 @@ public class LogicsImpl implements Logics {
         if(optional.isPresent()){
             return Optional.of(Integer.toString(optional.get()));
         }
-        return Optional.ofNullable(null);
+        return Optional.empty();
     }
 
 	@Override
