@@ -39,4 +39,14 @@ public class GridImpl implements Grid{
         return this.cells[X][Y].isVisible();
     }
 
+    @Override
+    public void setFlag(boolean bool, int X, int Y) {
+        this.cells[X][Y].setFlag(bool);
+    }
+
+    @Override
+    public boolean isFlagged(int X, int Y) {
+        return this.cells[X][Y].isFlagged();
+    }
+
 }

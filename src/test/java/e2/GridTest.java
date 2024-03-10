@@ -47,4 +47,13 @@ public class GridTest extends DefaultGrid{
         );
     }
 
+    @Test
+    void setFlagTest(){
+        grid.setFlag(true, CELL_X, CELL_Y);
+        assertAll(
+            () -> assertTrue(grid.isFlagged(CELL_X, CELL_Y)),
+            () -> assertFalse(grid.isFlagged(SECOND_CELL_X, SECOND_CELL_Y))
+        );
+    }
+
 }
