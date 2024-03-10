@@ -2,7 +2,7 @@ package e2.numberStrategy;
 
 import e2.cell.Cell;
 
-public class AdiacentStrategy implements NumberStrategy{
+public class NumberStrategyImpl implements NumberStrategy{
 
 
     @Override

@@ -40,6 +40,7 @@ public class GridTest extends DefaultGrid{
 
     @Test
     void isVisibleTest(){
+        firstCell.setNumber(ADIACENT_MINES);
         grid.hitCell(CELL_X, CELL_Y);
         assertAll(
             () -> assertTrue(grid.isVisible(CELL_X, CELL_Y)),

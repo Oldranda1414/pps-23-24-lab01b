@@ -6,14 +6,14 @@ import java.util.Optional;
 
 import e2.grid.Grid;
 import e2.grid.GridBuilderImpl;
-import e2.numberStrategy.AdiacentStrategy;
+import e2.numberStrategy.NumberStrategyImpl;
 
 public class LogicsImpl implements Logics {
 
     private Grid grid;
 
     public LogicsImpl(final int SIZE, final int N_MINES) {
-        this.grid = new GridBuilderImpl().build(SIZE, N_MINES, new AdiacentStrategy());
+        this.grid = new GridBuilderImpl().build(SIZE, N_MINES, new NumberStrategyImpl());
     }
 
     public LogicsImpl(Grid grid){
