@@ -1,6 +1,9 @@
 package e2.numberStrategy;
 
 import e2.cell.Cell;
+import e2.utils.AdiacentStrategy;
+import e2.utils.AdiacentStrategyImpl;
+import e2.utils.Pair;
 
 public class NumberStrategyImpl implements NumberStrategy{
 
@@ -13,15 +16,13 @@ public class NumberStrategyImpl implements NumberStrategy{
     private int countAdiacentMines(Cell[][] cells, int X, int Y){
         int counter = 0;
 
-        final int[] ADIACENT_X = {X, X - 1, X + 1};
-        final int[] ADIACENT_Y = {Y, Y - 1, Y + 1};
+        AdiacentStrategy strategy = new AdiacentStrategyImpl();
+        var list = strategy.getAdiacentPositions(new Pair<Integer,Integer>(X, Y));
 
-        for(var x : ADIACENT_X){
-            for(var y : ADIACENT_Y){
-                if((x != X || y != Y) && isValidPosition(x, y, cells.length, cells[0].length)){
-                    Cell currentCell = cells[x][y];
-                    if(currentCell.isMine()) counter++;
-                }
+        for(var pos: list){
+            if(isValidPosition(pos.getX(), pos.getY(), cells.length, cells[0].length)){
+                Cell currentCell = cells[pos.getX()][pos.getY()];
+                if(currentCell.isMine()) counter++;
             }
         }
         return counter;

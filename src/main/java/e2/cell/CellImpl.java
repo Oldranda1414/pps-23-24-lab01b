@@ -2,7 +2,6 @@ package e2.cell;
 
 import java.util.Optional;
 
-//TODO CAPTURE CONCEPT OF ADIACENCY
 public class CellImpl implements Cell{
 
     private boolean flag = false;
