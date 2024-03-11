@@ -9,7 +9,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-//TODO TEST THROWS OUT OF BOUNDS EXEPTION
 public class GridTest extends DefaultGrid{
 
     private final int OUT_OF_BOUNDS = 5;
